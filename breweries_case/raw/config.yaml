@@ -1,0 +1,9 @@
+source:
+  name: source_raw_data
+  path: "s3a://mzan-raw-breweries-case/"
+  format: json
+
+sink:
+  name: sink_raw_data
+  path: "s3a://mzan-raw-breweries-case/"
+  format: json
