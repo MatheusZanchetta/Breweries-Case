@@ -20,15 +20,14 @@ Breweries Case - BEES
       .\venv\Scripts\activate
       ```
 
-3. Install dependencies:
-
-    ```bash
-    pip install -r requirements.txt
-    ```
 
 ## Code Quality
 
 This project uses [pre-commit](https://pre-commit.com/) and [flake8](https://flake8.pycqa.org/en/latest/) to enforce code standards.
+1. **Instalar o pre-commit**: `pip install pre-commit`
+2. **Instalar os hooks**: `pre-commit install`
+3. **Rodar os hooks manualmente**: `pre-commit run --all-files`
+
 
 # Infra - Buckets S3 do Projeto Breweries
 
@@ -53,8 +52,8 @@ Dentro da pasta Infra existe o Terraform que define os buckets S3 utilizados par
 ### 1. Clone o repositório
 
 ```bash
-git clone https://github.com/seu_usuario/seu_projeto.git
-cd seu_projeto
+git https://github.com/MatheusZanchetta/Breweries-Case
+cd Breweries-Case
 ```
 ### 2. Suba o docker
 ```

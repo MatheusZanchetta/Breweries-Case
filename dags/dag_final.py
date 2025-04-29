@@ -1,16 +1,19 @@
-from breweries_case.analytics.job import AnalyticsdBrewryData
-from breweries_case.curated.job import CuratedBrewryData
-from breweries_case.raw.job import process_brewery_data
+import sys
+import os
 from airflow import DAG
 from airflow.operators.python import PythonOperator
 from datetime import datetime, timedelta
-import sys
-import os
+
 
 from airflow.operators.python import ShortCircuitOperator
 
-# Ajustar o path para importar o job
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+sys.path.append(
+    os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+)  # noqa: E402
+
+from breweries_case.analytics.job import AnalyticsBrewryData  # noqa: E402
+from breweries_case.curated.job import CuratedBrewryData  # noqa: E402
+from breweries_case.raw.job import process_brewery_data  # noqa: E402
 
 # Importa a função principal do job
 
@@ -46,7 +49,7 @@ with DAG(
         )
         analytics_task = PythonOperator(
             task_id="analytics_data",
-            python_callable=AnalyticsdBrewryData,
+            python_callable=AnalyticsBrewryData,
             op_kwargs={"execution_date": "{{ ds }}"},
         )
         verify_new_data >> curated_task >> analytics_task
