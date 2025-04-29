@@ -1,0 +1,7 @@
+source:
+  type: s3
+  path: "s3a://mzan-curated-breweries-case/"
+
+sink:
+  type: s3
+  path: "s3a://mzan-analytics-breweries-case/"
