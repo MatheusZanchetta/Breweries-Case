@@ -16,7 +16,7 @@ def load_config():
         return yaml.safe_load(f)
 
 
-def AnalyticsdBrewryData(execution_date=None):
+def AnalyticsBrewryData(execution_date=None):
     spark = create_spark_session()
     config = load_config()
 
@@ -49,4 +49,4 @@ def AnalyticsdBrewryData(execution_date=None):
 
 
 if __name__ == "__main__":
-    AnalyticsdBrewryData()
+    AnalyticsBrewryData()

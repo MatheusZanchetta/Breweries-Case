@@ -24,14 +24,6 @@ def create_spark_session(aws_conn_id: str = "aws_default") -> SparkSession:
         .config("spark.hadoop.fs.s3a.access.key", credentials.access_key)
         .config("spark.hadoop.fs.s3a.secret.key", credentials.secret_key)
         .config("spark.hadoop.fs.s3a.path.style.access", "true")
-        .config(
-            "spark.sql.extensions", "io.delta.sql.DeltaSparkSessionExtension"
-        )
-        .config(
-            "spark.sql.catalog.spark_catalog",
-            "org.apache.spark.sql.delta.catalog.DeltaCatalog",
-        )
-        .config("spark.databricks.delta.formatCheck.enabled", "false")
         .getOrCreate()
     )
 
