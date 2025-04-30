@@ -40,7 +40,6 @@ def CuratedBrewryData(execution_date=None):
     logger.info(
         f"Encontrados {filtered_df.count()} registros novos. Salvando..."
     )
-    filtered_df.show()
     filtered_df.write.mode("append").partitionBy("country").parquet(sink_path)
     logger.info("Salvo com Sucesso")
 
