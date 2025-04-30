@@ -32,7 +32,7 @@ def AnalyticsBrewryData(execution_date=None):
     df = spark.read.format("parquet").load(source_path)
 
     logger.info(f"Filtradando dados de {execution_date_str}")
-    df_filtered = df.filter(col("ds") == lit(execution_date_str))
+    df_filtered = df.filter(col("date_execution") == lit(execution_date_str))
 
     logger.info("Agregando os dados")
     agg_df = (
