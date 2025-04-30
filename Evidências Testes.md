@@ -3,6 +3,9 @@ Breweries Case - BEES
 
 ## Evidência de Teste
 ###Full-Load
+Docker
+![img_4.png](img_4.png)
+
 Evidências do Airflow
 ![img.png](img.png)
 
